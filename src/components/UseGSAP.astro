@@ -1,0 +1,120 @@
+---
+
+---
+
+<script type="module">
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  window.addEventListener("load", () => {
+    // Preloader animation
+    gsap
+      .timeline()
+      .to(".preloader-logo", {
+        opacity: 1,
+        duration: 2,
+      })
+      .to(".preloader-logo", {
+        filter: "drop-shadow(0 0 0px rgba(0, 255, 106, 0))",
+        duration: 0.5,
+        ease: "sine",
+      })
+      .to(".preloader-logo", {
+        y: -100,
+        duration: 2,
+      })
+      .to(
+        "#preloader-bg",
+        {
+          opacity: 0,
+          duration: 1,
+        },
+        "<",
+      );
+
+    // Arrow animation
+    gsap.timeline({ repeat: -1, yoyo: true }).to("#below-icon", {
+      y: 10,
+      ease: "power2.in",
+    });
+
+    gsap.to("#below", {
+      scrollTrigger: {
+        trigger: "#below-icon",
+        start: "top center",
+        end: "bottom center",
+        toggleActions: "play none none reverse",
+      },
+      opacity: 0,
+    });
+
+    // Header animation
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#header",
+          start: "top top",
+          toggleActions: "play none none reverse",
+        },
+      })
+      .to("#header", {
+        top: 10,
+        left: 10,
+        right: 10,
+        backgroundColor: '#00000080',
+	      backdropFilter: 'blur(10px)',
+        borderRadius: 1000,
+      });
+
+      // Business sectors animation
+      const sections = gsap.utils.toArray(".sector");
+      const images = gsap.utils.toArray(".sector-image");
+
+      function changeImage(index){
+          images.forEach((img,i)=>{
+              if(i===index){
+                  gsap.to(img,{
+                      opacity:1,
+                      scale:1,
+                      y:0,
+                      filter:"blur(0px)",
+                      duration:0.8,
+                      ease:"power3.out"
+                  });
+              }else{
+                  gsap.to(img,{
+                      opacity:0,
+                      scale:.95,
+                      y:30,
+                      filter:"blur(15px)",
+                      duration:0.8,
+                      ease:"power3.out"
+                  });
+              }
+          });
+      }
+
+      sections.forEach((section, index) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top center",
+          end: "bottom center",
+          onEnter: () => changeImage(index),
+          onEnterBack: () => changeImage(index),
+        })
+
+        // gsap.from(section.children, {
+        //   opacity: 0,
+        //   y: 80,
+        //   duration: 1,
+        //   stagger: 0.2,
+        //   scrollTrigger: {
+        //     trigger: section,
+        //     start: "top 70%",
+        //   },
+        // });
+      });
+  });
+</script>

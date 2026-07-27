@@ -1,0 +1,96 @@
+---
+import { MoveDown } from "@lucide/astro";
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout>
+  <div id="preloader" class="fixed flex-center w-screen h-screen hidden">
+        <div id="preloader-bg" class="absolute inset-0 bg-black"></div>
+        <div class="flex-center flex-col relative z-10">
+          <img
+            src="/images/logos/Logomark.png"
+            alt=""
+            class="preloader-logo size-50 opacity-0"
+          />
+        </div>
+      </div>
+      <section class="h-screen w-screen relative">
+        <div class="flex-center flex-col h-screen pt-70 text-center">
+          <h1 class="text-7xl inter-bold">THE MATRICES</h1>
+          <p class="text-3xl">(PVT) LTD</p>
+          <p class="pt-5 text-3xl">Innovatice solutions for tomorrow's challenges.</p>
+          <div class="flex-center gap-5 mt-10">
+            <button class="primary">
+              Learn More
+            </button>
+            <button class="secondary">
+              Get Started
+            </button>
+          </div>
+        </div>
+
+        <div id="below" class="absolute bottom-10 right-10 flex-center flex-col">
+          <p>Scroll below</p>
+          <MoveDown id="below-icon" />
+        </div>
+      </section>
+
+      <section class="min-h-screen">
+        <h2 class="title">Our Business Sectors</h2>
+        <p class="subtitle">Diverse sectors delivering excellence across multiple industries</p>
+
+        <div class="grid grid-cols-2">
+
+          <div class="left-side">
+            <img src="/images/home/real-estate.svg"  alt="Real Estate" class="sector-image" />
+            <img src="/images/home/travel.svg"  alt="Ticketing & Tourism" class="sector-image" />
+            <img src="/images/home/vehicle-rental.svg"  alt="vehicle-rental" class="sector-image" />
+            <img src="/images/home/vehicle-trading.svg"  alt="vehicle-trading" class="sector-image" />
+            <img src="/images/home/clothing.svg"  alt="Clothing" class="sector-image" />
+            <img src="/images/home/manpower.svg"  alt="Manpower Agency" class="sector-image" />
+            <img src="/images/home/software.svg"  alt="Software Solutions" class="sector-image" />
+          </div>
+
+          <div class="right-side">
+
+            <div class="sector">
+              <h3>Real Estate</h3>
+              <p>Our real estate division specializes in property development, sales, leasing, and investment opportunities, offering clients reliable solutions for residential and commercial needs.</p>
+            </div>
+
+            <div class="sector">
+              <h3>Ticketing & Tourism</h3>
+              <p>We provide travel and tourism services, including domestic and international ticketing, tour packages, and personalized travel planning to make every journey memorable.</p>
+            </div>
+
+            <div class="sector">
+              <h3>Vehicle Rental</h3>
+              <p>Our vehicle rental services cater to individual and corporate clients, offering a wide range of vehicles to ensure convenience, comfort, and affordability.</p>
+            </div>
+
+            <div class="sector">
+              <h3>Vehicle Trading</h3>
+              <p>We facilitate buying and selling of vehicles with transparency and efficiency, ensuring that customers receive the best value and quality.</p>
+            </div>
+
+            <div class="sector">
+              <h3>Clothing Business</h3>
+              <p>Our clothing line focuses on delivering stylish, high-quality apparel to meet modern fashion demands, blending creativity with affordability.</p>
+            </div>
+
+            <div class="sector">
+              <h3>Manpower Agency</h3>
+              <p>Through our manpower services, we connect businesses with skilled and reliable human resources, contributing to both employment growth and organizational success.</p>
+            </div>
+
+            <div class="sector">
+              <h3>Software Solutions</h3>
+              <p>We help businesses scale online with powerful solutions in software, design, development, AI, and digital marketing—driven by our IT arm, The Matrices Nexus Solutions.</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+</MainLayout>
